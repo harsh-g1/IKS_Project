@@ -1,0 +1,8 @@
+# Project Commands
+
+(if below commands don't work) Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force
+npm install
+npm run dev
+
+# Run the mock heart rate server
+node mock_hr_server.cjs
