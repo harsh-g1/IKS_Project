@@ -42,9 +42,9 @@ export const SessionStats: React.FC<SessionStatsProps> = ({
         </div>
 
         <div className="stat-card">
-          <div className="stat-label">Average BPM</div>
+          <div className="stat-label">Average Heart Rate</div>
           <div className="stat-value">{averageBPM.toFixed(1)}</div>
-          <div className="stat-target">Target: 6 BPM</div>
+          <div className="stat-target">Healthy Range: 60-100 BPM</div>
         </div>
 
         <div className="stat-card">
