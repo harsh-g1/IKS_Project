@@ -1,0 +1,107 @@
+.heart-rate-monitor {
+  padding: 16px;
+}
+
+.hr-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.hr-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.status-indicator.connected {
+  background-color: #4ade80;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.connecting {
+  background-color: #fbbf24;
+  animation: pulse 1s infinite;
+}
+
+.status-indicator.disconnected {
+  background-color: #f87171;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.hr-display {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hr-value {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.hr-unit {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-left: 8px;
+}
+
+.hr-sync {
+  margin-bottom: 16px;
+}
+
+.sync-bar {
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.sync-fill {
+  height: 100%;
+  background-color: #4ade80;
+  transition: width 0.3s ease;
+}
+
+.sync-text {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.hr-avg {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.no-finger {
+  text-align: center;
+  margin: 16px 0;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.error-message {
+  color: #fca5a5;
+  font-size: 12px;
+  margin-top: 12px;
+}
