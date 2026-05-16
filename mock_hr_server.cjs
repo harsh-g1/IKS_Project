@@ -16,8 +16,10 @@ const createStatusMessage = (connected, error = null) => ({
 });
 
 const getRandomHeartRate = () => {
-  const variation = Math.random() * 2 - 1; // ±1 BPM variation
-  return Math.round((6 + variation) * 10) / 10;
+  // Generate realistic resting heart rate (60-80 BPM with small variation)
+  const baseHeartRate = 70;
+  const variation = Math.random() * 10 - 5; // ±5 BPM variation
+  return Math.round((baseHeartRate + variation) * 10) / 10;
 };
 
 wss.on('connection', (ws) => {
