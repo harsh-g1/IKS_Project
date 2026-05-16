@@ -59,17 +59,24 @@ export class HeartRateSync {
   }
 
   private calculateBreathingSync(heartRate: number): number {
-    // Target breathing: 6 BPM = 1 beat per 10 seconds
-    // Heart should sync with breathing rhythm (HRV improvement)
-    const targetBreathRate = 6;
-    const tolerance = 3; // Allow ±3 BPM variation
-
+    // Heart rate variability (HRV) indicates parasympathetic nervous system activation
+    // during synchronized breathing (6 breaths/minute)
+    // A stable, healthy resting heart rate (60-100 BPM) indicates good sync with breathing
+    
     if (heartRate === 0) return 0;
 
-    const deviation = Math.abs(heartRate - targetBreathRate);
-    const syncPercent = Math.max(0, 100 - (deviation / tolerance) * 100);
-
-    return Math.round(syncPercent);
+    // Check if heart rate is in healthy resting range (60-100 BPM)
+    // Perfect sync = stable heart rate in optimal zone (60-80 BPM)
+    if (heartRate >= 60 && heartRate <= 80) {
+      return 85; // High sync score for optimal zone
+    } else if (heartRate > 80 && heartRate <= 100) {
+      return 70; // Good sync for slightly elevated range
+    } else if (heartRate < 60 && heartRate >= 50) {
+      return 70; // Good sync for slightly low range
+    } else {
+      // Outside healthy resting range
+      return Math.max(20, 100 - Math.abs(heartRate - 70) / 10);
+    }
   }
 
   private attemptReconnect() {
